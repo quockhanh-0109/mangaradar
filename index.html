@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Manga Radar</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        min-height: 100vh;
+        overflow: hidden;
+
+        background:
+          radial-gradient(circle at 20% 20%, #3b1d5a 0%, transparent 35%),
+          radial-gradient(circle at 80% 80%, #172554 0%, transparent 35%),
+          #09090b;
+
+        color: white;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+      }
+
+      /* =========================
+           BACKGROUND
+        ========================= */
+
+      .background {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.35;
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .orb1 {
+        width: 250px;
+        height: 250px;
+        background: #7c3aed;
+        top: -80px;
+        left: -80px;
+      }
+
+      .orb2 {
+        width: 300px;
+        height: 300px;
+        background: #2563eb;
+        bottom: -120px;
+        right: -100px;
+        animation-delay: 2s;
+      }
+
+      .orb3 {
+        width: 180px;
+        height: 180px;
+        background: #ec4899;
+        top: 50%;
+        left: 70%;
+        animation-delay: 4s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+
+        50% {
+          transform: translate(25px, -25px);
+        }
+      }
+
+      /* =========================
+           PARTICLES
+        ========================= */
+
+      .particle {
+        position: absolute;
+
+        width: 3px;
+        height: 3px;
+
+        background: white;
+
+        border-radius: 50%;
+
+        opacity: 0.4;
+
+        animation:
+          particleMove linear infinite,
+          particleBlink ease-in-out infinite;
+      }
+
+      @keyframes particleMove {
+        from {
+          transform: translateY(110vh);
+        }
+
+        to {
+          transform: translateY(-10vh);
+        }
+      }
+
+      @keyframes particleBlink {
+        0%,
+        100% {
+          opacity: 0.1;
+        }
+
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      /* =========================
+           CARD
+        ========================= */
+
+      .container {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        max-width: 500px;
+
+        padding: 40px;
+
+        background: rgba(20, 20, 25, 0.75);
+
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        border-radius: 24px;
+
+        backdrop-filter: blur(20px);
+
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+
+        animation: cardAppear 0.8s ease forwards;
+      }
+
+      @keyframes cardAppear {
+        from {
+          opacity: 0;
+          transform: translateY(40px) scale(0.95);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* =========================
+           LOGO
+        ========================= */
+
+      .logo {
+        text-align: center;
+
+        font-size: 52px;
+
+        margin-bottom: 5px;
+
+        animation: logoFloat 3s ease-in-out infinite;
+      }
+
+      @keyframes logoFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+
+      /* =========================
+           TITLE
+        ========================= */
+
+      .title {
+        text-align: center;
+
+        font-size: 30px;
+
+        font-weight: 800;
+
+        letter-spacing: 1px;
+
+        margin-bottom: 10px;
+
+        background: linear-gradient(90deg, #ffffff, #c4b5fd, #ffffff);
+
+        background-size: 200% auto;
+
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        color: transparent;
+
+        animation: titleShine 4s linear infinite;
+      }
+
+      @keyframes titleShine {
+        to {
+          background-position: 200% center;
+        }
+      }
+
+      .description {
+        text-align: center;
+
+        color: #a1a1aa;
+
+        font-size: 15px;
+
+        line-height: 1.7;
+
+        margin-bottom: 30px;
+      }
+
+      /* =========================
+           FORM
+        ========================= */
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+
+        margin-bottom: 8px;
+
+        font-size: 14px;
+
+        font-weight: 600;
+
+        color: #e4e4e7;
+      }
+
+      .required {
+        color: #f472b6;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+
+        border: 1px solid #27272a;
+
+        background: rgba(0, 0, 0, 0.3);
+
+        color: white;
+
+        border-radius: 12px;
+
+        padding: 14px;
+
+        font-size: 15px;
+
+        font-family: inherit;
+
+        outline: none;
+
+        transition:
+          border 0.3s,
+          box-shadow 0.3s,
+          transform 0.3s;
+      }
+
+      input {
+        height: 50px;
+      }
+
+      textarea {
+        min-height: 120px;
+
+        resize: vertical;
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: #71717a;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: #8b5cf6;
+
+        box-shadow:
+          0 0 0 3px rgba(139, 92, 246, 0.15),
+          0 0 20px rgba(139, 92, 246, 0.1);
+
+        transform: translateY(-2px);
+      }
+
+      /* =========================
+           BUTTON
+        ========================= */
+
+      button {
+        position: relative;
+
+        overflow: hidden;
+
+        width: 100%;
+
+        height: 52px;
+
+        border: none;
+
+        border-radius: 12px;
+
+        background: linear-gradient(135deg, #7c3aed, #4f46e5);
+
+        color: white;
+
+        font-size: 15px;
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      button::before {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: -100%;
+
+        width: 100%;
+        height: 100%;
+
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.25),
+          transparent
+        );
+
+        transition: 0.5s;
+      }
+
+      button:hover::before {
+        left: 100%;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+
+        box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35);
+      }
+
+      button:active {
+        transform: scale(0.98);
+      }
+
+      button:disabled {
+        opacity: 0.6;
+
+        cursor: not-allowed;
+
+        transform: none;
+      }
+
+      /* =========================
+           MESSAGE
+        ========================= */
+
+      .message {
+        display: none;
+
+        margin-top: 18px;
+
+        padding: 14px;
+
+        border-radius: 12px;
+
+        text-align: center;
+
+        font-size: 14px;
+
+        animation: messageAppear 0.4s ease;
+      }
+
+      @keyframes messageAppear {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .success {
+        display: block;
+
+        background: rgba(34, 197, 94, 0.12);
+
+        border: 1px solid rgba(34, 197, 94, 0.2);
+
+        color: #86efac;
+      }
+
+      .error {
+        display: block;
+
+        background: rgba(239, 68, 68, 0.12);
+
+        border: 1px solid rgba(239, 68, 68, 0.2);
+
+        color: #fca5a5;
+      }
+
+      /* =========================
+           FOOTER
+        ========================= */
+
+      .footer {
+        text-align: center;
+
+        margin-top: 25px;
+
+        color: #52525b;
+
+        font-size: 12px;
+      }
+
+      /* =========================
+           MOBILE
+        ========================= */
+
+      @media (max-width: 600px) {
+        body {
+          overflow: auto;
+        }
+
+        .container {
+          padding: 30px 22px;
+
+          border-radius: 20px;
+        }
+
+        .logo {
+          font-size: 44px;
+        }
+
+        .title {
+          font-size: 26px;
+        }
+
+        .description {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================
+         BACKGROUND
+    ========================= -->
+
+    <div class="background">
+      <div class="orb orb1"></div>
+
+      <div class="orb orb2"></div>
+
+      <div class="orb orb3"></div>
+    </div>
+
+    <!-- =========================
+         MAIN CARD
+    ========================= -->
+
+    <div class="container">
+      <div class="logo">📚</div>
+
+      <h1 class="title">Manga Radar</h1>
+
+      <p class="description">
+        Bạn muốn Manga Radar review bộ manga nào tiếp theo?
+
+        <br />
+
+        Hãy để lại tên truyện cho chúng mình nhé! ✨
+      </p>
+
+      <!-- FORM -->
+
+      <form id="mangaForm">
+        <!-- TÊN MANGA -->
+
+        <div class="form-group">
+          <label for="mangaName">
+            Tên manga
+
+            <span class="required"> * </span>
+          </label>
+
+          <input
+            type="text"
+            id="mangaName"
+            name="mangaName"
+            placeholder="Ví dụ: TRUMP, Dandadan..."
+            maxlength="100"
+            autocomplete="off"
+            required
+          />
+        </div>
+
+        <!-- LỜI NHẮN -->
+
+        <div class="form-group">
+          <label for="message"> Lời nhắn </label>
+
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Bạn muốn nhắn gì với Manga Radar?"
+            maxlength="500"
+          ></textarea>
+        </div>
+
+        <!-- BUTTON -->
+
+        <button type="submit" id="submitButton">GỬI ĐỀ XUẤT ✨</button>
+      </form>
+
+      <!-- THÔNG BÁO -->
+
+      <div id="resultMessage" class="message"></div>
+
+      <div class="footer">Manga Radar • Cùng khám phá thế giới manga 📖</div>
+    </div>
+
+    <script>
+      /* =========================================
+           GOOGLE APPS SCRIPT
+
+           DÁN URL GOOGLE APPS SCRIPT CỦA BẠN
+           VÀO GIỮA HAI DẤU "
+
+           Ví dụ:
+
+           const GOOGLE_SCRIPT_URL =
+           "https://script.google.com/macros/s/ABC/exec";
+
+        ========================================= */
+
+      const GOOGLE_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbyD-FhVI3yHnr-abxDq8RU0Q_SuFDUe4LkbYOXRCLkpe14qPHZMvXH9Ir7WLqD7qPmIKQ/exec";
+
+      /* =========================================
+           TẠO PARTICLES
+        ========================================= */
+
+      const background = document.querySelector(".background");
+
+      for (let i = 0; i < 35; i++) {
+        const particle = document.createElement("div");
+
+        particle.classList.add("particle");
+
+        particle.style.left = Math.random() * 100 + "%";
+
+        particle.style.animationDuration = 8 + Math.random() * 12 + "s";
+
+        particle.style.animationDelay = Math.random() * 10 + "s";
+
+        particle.style.width = Math.random() * 3 + 1 + "px";
+
+        particle.style.height = particle.style.width;
+
+        background.appendChild(particle);
+      }
+
+      /* =========================================
+           FORM
+        ========================================= */
+
+      const form = document.getElementById("mangaForm");
+
+      const mangaName = document.getElementById("mangaName");
+
+      const message = document.getElementById("message");
+
+      const button = document.getElementById("submitButton");
+
+      const resultMessage = document.getElementById("resultMessage");
+
+      /* =========================================
+           SUBMIT
+        ========================================= */
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const name = mangaName.value.trim();
+
+        const text = message.value.trim();
+
+        /* KIỂM TRA */
+
+        if (!name) {
+          showMessage("Bạn chưa nhập tên manga kìa 😭", "error");
+
+          mangaName.focus();
+
+          return;
+        }
+
+        /* KIỂM TRA URL */
+
+        if (GOOGLE_SCRIPT_URL === "DÁN_URL_APPS_SCRIPT_VÀO_ĐÂY") {
+          showMessage("Website chưa được kết nối với Google Sheets.", "error");
+
+          return;
+        }
+
+        /* LOADING */
+
+        button.disabled = true;
+
+        button.innerHTML = "ĐANG GỬI... ⏳";
+
+        try {
+          const formData = new URLSearchParams();
+
+          formData.append("tenManga", name);
+
+          formData.append("loiNhan", text);
+
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+
+            mode: "no-cors",
+
+            body: formData,
+          });
+
+          /* THÀNH CÔNG */
+
+          showMessage(
+            "✨ Đã nhận đề xuất! Cảm ơn bạn đã góp ý cho Manga Radar ❤️",
+            "success",
+          );
+
+          /* RESET */
+
+          form.reset();
+        } catch (error) {
+          console.error(error);
+
+          showMessage("Có lỗi xảy ra. Bạn thử lại nhé!", "error");
+        }
+
+        /* RESET BUTTON */
+
+        button.disabled = false;
+
+        button.innerHTML = "GỬI ĐỀ XUẤT ✨";
+      });
+
+      /* =========================================
+           HIỂN THỊ THÔNG BÁO
+        ========================================= */
+
+      function showMessage(text, type) {
+        resultMessage.innerText = text;
+
+        resultMessage.className = "message " + type;
+
+        /* Tự ẩn sau 5 giây */
+
+        setTimeout(function () {
+          resultMessage.className = "message";
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>
