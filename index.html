@@ -519,43 +519,55 @@
       <!-- FORM -->
 
       <form id="mangaForm">
-        <!-- TÊN MANGA -->
 
-        <div class="form-group">
-          <label for="mangaName">
+    <!-- TÊN MANGA -->
+    <div class="form-group">
+
+        <label for="mangaName">
             Tên manga
+            <span class="required">*</span>
+        </label>
 
-            <span class="required"> * </span>
-          </label>
-
-          <input
+        <input
             type="text"
             id="mangaName"
             name="mangaName"
-            placeholder="Ví dụ: TRUMP, Dandadan..."
+            placeholder="Nhập tên manga bạn muốn mình review..."
             maxlength="100"
             autocomplete="off"
             required
-          />
-        </div>
+        >
 
-        <!-- LỜI NHẮN -->
+    </div>
 
-        <div class="form-group">
-          <label for="message"> Lời nhắn </label>
 
-          <textarea
+    <!-- THÔNG TIN BỔ SUNG -->
+    <div class="form-group">
+
+        <label for="message">
+            Thông tin thêm
+        </label>
+
+        <textarea
             id="message"
             name="message"
-            placeholder="Bạn muốn nhắn gì với Manga Radar?"
+            placeholder="Nhập tên tác giả hoặc tên tiếng Nhật để mình xác định chính xác manga nhé..."
             maxlength="500"
-          ></textarea>
-        </div>
+        ></textarea>
 
-        <!-- BUTTON -->
+    </div>
 
-        <button type="submit" id="submitButton">GỬI ĐỀ XUẤT ✨</button>
-      </form>
+
+    <!-- NÚT GỬI -->
+    <button
+        type="submit"
+        id="submitButton">
+
+        GỬI ĐỀ XUẤT ✨
+
+    </button>
+
+</form>
 
       <!-- THÔNG BÁO -->
 
@@ -672,9 +684,9 @@
           /* THÀNH CÔNG */
 
           showMessage(
-            "✨ Đã nhận đề xuất! Cảm ơn bạn đã góp ý cho Manga Radar ❤️",
-            "success",
-          );
+    "Cảm ơn bạn đã gửi đề xuất! ❤️\nMình sẽ lên bài trong thời gian sớm nhất.",
+    "success"
+);
 
           /* RESET */
 
