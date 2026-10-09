@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f5f0e8" />
-    <meta name="description" content="Gửi tên manga bạn muốn khám phá cùng cộng đồng Manga Radar." />
+    <meta
+      name="description"
+      content="Gửi tên manga bạn muốn khám phá cùng cộng đồng Manga Radar."
+    />
     <title>Gửi đề xuất manga — Manga Radar</title>
     <style>
       :root {
@@ -16,8 +19,12 @@
         --line: #d9d1c6;
         --card: #fffdf9;
       }
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         margin: 0;
         min-height: 100vh;
@@ -26,7 +33,11 @@
         font-family: Inter, "Segoe UI", Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
       }
-      button, input, textarea { font: inherit; }
+      button,
+      input,
+      textarea {
+        font: inherit;
+      }
       .site-header {
         height: 78px;
         display: flex;
@@ -37,149 +48,768 @@
         margin: auto;
         border-bottom: 1px solid var(--line);
       }
-      .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: inherit; }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        text-decoration: none;
+        color: inherit;
+      }
       .brand-mark {
-        display: grid; place-items: center; width: 38px; height: 38px;
-        background: var(--red); color: white; border: 2px solid var(--ink);
-        box-shadow: 3px 3px 0 var(--ink); font-size: 20px; font-weight: 900;
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        background: var(--red);
+        color: white;
+        border: 2px solid var(--ink);
+        box-shadow: 3px 3px 0 var(--ink);
+        font-size: 20px;
+        font-weight: 900;
         transform: rotate(-4deg);
       }
-      .brand-name { font-weight: 900; letter-spacing: -.06em; font-size: 19px; }
-      .header-note { font-size: 12px; color: var(--muted); letter-spacing: .12em; text-transform: uppercase; font-weight: 750; }
-      main { max-width: 1160px; padding: 56px 28px 68px; margin: auto; }
-      .hero { display: grid; grid-template-columns: 1.02fr .98fr; gap: 54px; align-items: center; }
-      .eyebrow { display: flex; align-items: center; gap: 9px; color: var(--red); font-size: 12px; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
-      .eyebrow::before { content: ""; width: 25px; height: 3px; background: var(--red); }
-      h1 { max-width: 610px; margin: 19px 0 19px; font-size: clamp(47px, 6vw, 76px); line-height: .98; letter-spacing: -.075em; font-weight: 950; }
-      h1 span { color: var(--red); }
-      .intro { max-width: 490px; color: #625c55; font-size: 17px; line-height: 1.75; }
-      .intro strong { color: var(--ink); }
-      .visual { min-height: 350px; position: relative; display: grid; place-items: center; }
+      .brand-name {
+        font-weight: 900;
+        letter-spacing: -0.06em;
+        font-size: 19px;
+      }
+      .header-note {
+        font-size: 12px;
+        color: var(--muted);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 750;
+      }
+      main {
+        max-width: 1160px;
+        padding: 56px 28px 68px;
+        margin: auto;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.02fr 0.98fr;
+        gap: 54px;
+        align-items: center;
+      }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--red);
+        font-size: 12px;
+        font-weight: 850;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 25px;
+        height: 3px;
+        background: var(--red);
+      }
+      h1 {
+        max-width: 610px;
+        margin: 19px 0 19px;
+        font-size: clamp(47px, 6vw, 76px);
+        line-height: 0.98;
+        letter-spacing: -0.075em;
+        font-weight: 950;
+      }
+      h1 span {
+        color: var(--red);
+      }
+      .intro {
+        max-width: 490px;
+        color: #625c55;
+        font-size: 17px;
+        line-height: 1.75;
+      }
+      .intro strong {
+        color: var(--ink);
+      }
+      .visual {
+        min-height: 350px;
+        position: relative;
+        display: grid;
+        place-items: center;
+      }
       .sunburst {
-        position: absolute; inset: 5% 2%; opacity: .62;
-        background: repeating-conic-gradient(from -8deg at 52% 52%, transparent 0 9deg, rgba(228,67,50,.12) 9deg 10deg, transparent 10deg 18deg);
-        clip-path: polygon(50% 0, 57% 33%, 82% 6%, 70% 39%, 100% 33%, 74% 52%, 98% 74%, 67% 65%, 69% 100%, 51% 70%, 29% 98%, 36% 65%, 4% 79%, 29% 54%, 0 35%, 34% 39%, 19% 6%, 44% 33%);
+        position: absolute;
+        inset: 5% 2%;
+        opacity: 0.62;
+        background: repeating-conic-gradient(
+          from -8deg at 52% 52%,
+          transparent 0 9deg,
+          rgba(228, 67, 50, 0.12) 9deg 10deg,
+          transparent 10deg 18deg
+        );
+        clip-path: polygon(
+          50% 0,
+          57% 33%,
+          82% 6%,
+          70% 39%,
+          100% 33%,
+          74% 52%,
+          98% 74%,
+          67% 65%,
+          69% 100%,
+          51% 70%,
+          29% 98%,
+          36% 65%,
+          4% 79%,
+          29% 54%,
+          0 35%,
+          34% 39%,
+          19% 6%,
+          44% 33%
+        );
       }
       .manga-panel {
-        position: relative; z-index: 1; width: min(340px, 82%); aspect-ratio: .92;
-        overflow: hidden; background: #f9d9c9; border: 3px solid var(--ink);
-        box-shadow: 12px 12px 0 var(--ink); transform: rotate(3deg);
+        position: relative;
+        z-index: 1;
+        width: min(340px, 82%);
+        aspect-ratio: 0.92;
+        overflow: hidden;
+        background: #f9d9c9;
+        border: 3px solid var(--ink);
+        box-shadow: 12px 12px 0 var(--ink);
+        transform: rotate(3deg);
       }
-      .panel-sky { position: absolute; inset: 0 0 36%; background: radial-gradient(circle at 50% 65%, #fff5df 0 7%, transparent 7.5%), repeating-conic-gradient(from 2deg at 50% 65%, #f2a48b 0deg 4deg, #f7c5a9 4deg 8deg); }
-      .panel-horizon { position: absolute; left: -8%; right: -8%; bottom: 28%; height: 25%; background: #313033; clip-path: polygon(0 100%,0 45%,13% 45%,13% 21%,22% 21%,22% 0,35% 0,35% 38%,49% 38%,49% 13%,64% 13%,64% 47%,79% 47%,79% 25%,90% 25%,90% 53%,100% 53%,100% 100%); }
-      .panel-ground { position: absolute; inset: 69% 0 0; background: #282629; }
-      .panel-moon { position: absolute; top: 13%; right: 15%; width: 57px; height: 57px; border-radius: 50%; background: #fff1d6; box-shadow: 0 0 35px #fff3d7; }
-      .panel-caption { position: absolute; z-index: 2; top: 13%; left: -6%; padding: 12px 16px; color: white; background: var(--red); border: 2px solid var(--ink); font-size: 14px; font-weight: 950; letter-spacing: .04em; transform: rotate(-7deg); }
-      .panel-copy { position: absolute; z-index: 2; left: 7%; right: 7%; bottom: 6%; color: white; font-weight: 900; font-size: 15px; letter-spacing: .12em; text-align: center; text-shadow: 0 2px 3px #171516; }
-      .spark { position: absolute; z-index: 2; color: var(--red); font-size: 31px; font-weight: 900; }
-      .spark-one { top: 8%; left: 5%; transform: rotate(-14deg); }
-      .spark-two { bottom: 9%; right: 1%; font-size: 42px; }
+      .panel-sky {
+        position: absolute;
+        inset: 0 0 36%;
+        background:
+          radial-gradient(circle at 50% 65%, #fff5df 0 7%, transparent 7.5%),
+          repeating-conic-gradient(
+            from 2deg at 50% 65%,
+            #f2a48b 0deg 4deg,
+            #f7c5a9 4deg 8deg
+          );
+      }
+      .panel-horizon {
+        position: absolute;
+        left: -8%;
+        right: -8%;
+        bottom: 28%;
+        height: 25%;
+        background: #313033;
+        clip-path: polygon(
+          0 100%,
+          0 45%,
+          13% 45%,
+          13% 21%,
+          22% 21%,
+          22% 0,
+          35% 0,
+          35% 38%,
+          49% 38%,
+          49% 13%,
+          64% 13%,
+          64% 47%,
+          79% 47%,
+          79% 25%,
+          90% 25%,
+          90% 53%,
+          100% 53%,
+          100% 100%
+        );
+      }
+      .panel-ground {
+        position: absolute;
+        inset: 69% 0 0;
+        background: #282629;
+      }
+      .panel-moon {
+        position: absolute;
+        top: 13%;
+        right: 15%;
+        width: 57px;
+        height: 57px;
+        border-radius: 50%;
+        background: #fff1d6;
+        box-shadow: 0 0 35px #fff3d7;
+      }
+      .panel-caption {
+        position: absolute;
+        z-index: 2;
+        top: 13%;
+        left: -6%;
+        padding: 12px 16px;
+        color: white;
+        background: var(--red);
+        border: 2px solid var(--ink);
+        font-size: 14px;
+        font-weight: 950;
+        letter-spacing: 0.04em;
+        transform: rotate(-7deg);
+      }
+      .panel-copy {
+        position: absolute;
+        z-index: 2;
+        left: 7%;
+        right: 7%;
+        bottom: 6%;
+        color: white;
+        font-weight: 900;
+        font-size: 15px;
+        letter-spacing: 0.12em;
+        text-align: center;
+        text-shadow: 0 2px 3px #171516;
+      }
+      .spark {
+        position: absolute;
+        z-index: 2;
+        color: var(--red);
+        font-size: 31px;
+        font-weight: 900;
+      }
+      .spark-one {
+        top: 8%;
+        left: 5%;
+        transform: rotate(-14deg);
+      }
+      .spark-two {
+        bottom: 9%;
+        right: 1%;
+        font-size: 42px;
+      }
       .community {
-        display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px;
-        margin-top: 34px; padding: 25px 28px; border: 2px solid var(--ink);
-        background: #f4dfb8; box-shadow: 5px 5px 0 var(--ink);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 24px;
+        margin-top: 34px;
+        padding: 25px 28px;
+        border: 2px solid var(--ink);
+        background: #f4dfb8;
+        box-shadow: 5px 5px 0 var(--ink);
       }
-      .community-copy { max-width: 680px; }
-      .community-kicker { margin: 0 0 7px; color: #9b3a2e; font-size: 11px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
-      .community h2 { margin: 0 0 7px; font-size: 22px; letter-spacing: -.04em; }
-      .community p { margin: 0; color: #5c5144; font-size: 13px; line-height: 1.65; }
-      .community-actions { display: flex; flex-direction: column; gap: 9px; min-width: 205px; }
+      .community-copy {
+        max-width: 680px;
+      }
+      .community-kicker {
+        margin: 0 0 7px;
+        color: #9b3a2e;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .community h2 {
+        margin: 0 0 7px;
+        font-size: 22px;
+        letter-spacing: -0.04em;
+      }
+      .community p {
+        margin: 0;
+        color: #5c5144;
+        font-size: 13px;
+        line-height: 1.65;
+      }
+      .community-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        min-width: 205px;
+      }
       .community-link {
-        display: flex; align-items: center; justify-content: space-between; gap: 15px;
-        min-height: 43px; padding: 0 13px; border: 2px solid var(--ink); background: #fffdf9;
-        color: var(--ink); text-decoration: none; font-size: 12px; font-weight: 900;
-        transition: transform .15s, box-shadow .15s;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        min-height: 43px;
+        padding: 0 13px;
+        border: 2px solid var(--ink);
+        background: #fffdf9;
+        color: var(--ink);
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 900;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
       }
-      .community-link.primary { color: white; background: #087f68; }
-      .community-link:hover { transform: translateY(-2px); box-shadow: 3px 3px 0 var(--ink); }
-      .community-link span:last-child { font-size: 17px; }
-      .submit-section { display: grid; grid-template-columns: .72fr 1.28fr; margin-top: 58px; border: 2px solid var(--ink); background: var(--card); box-shadow: 8px 8px 0 var(--ink); }
-      .section-aside { padding: 34px; color: white; background: var(--ink); }
-      .section-aside .eyebrow { color: #ff9181; }
-      .section-aside .eyebrow::before { background: #ff9181; }
-      .section-aside h2 { margin: 22px 0 12px; font-size: 32px; line-height: 1.05; letter-spacing: -.06em; }
-      .section-aside p { margin: 0; color: #c9c2bb; font-size: 14px; line-height: 1.7; }
-      .aside-stamp { display: inline-block; margin-top: 28px; padding: 8px 11px; border: 1px solid #77706b; color: #f2ece4; font-size: 11px; font-weight: 800; letter-spacing: .13em; transform: rotate(-3deg); }
-      .form-wrap { padding: 34px 38px; }
-      .form-heading { margin: 0 0 7px; font-size: 22px; letter-spacing: -.04em; }
-      .form-hint { margin: 0 0 25px; color: var(--muted); font-size: 13px; line-height: 1.6; }
-      .field { margin-bottom: 19px; }
-      label { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; font-weight: 800; }
-      .optional { color: #898179; font-size: 11px; font-weight: 600; }
-      input, textarea { display: block; width: 100%; border: 1px solid #cfc7bc; border-radius: 3px; background: #fff; padding: 13px 14px; color: var(--ink); outline: none; transition: border-color .18s, box-shadow .18s; }
-      input { height: 48px; }
-      textarea { min-height: 94px; resize: vertical; line-height: 1.5; }
-      input::placeholder, textarea::placeholder { color: #a49c93; }
-      input:focus, textarea:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(228,67,50,.13); }
-      .submit-button { position: relative; display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 52px; padding: 0 17px; border: 2px solid var(--ink); color: white; background: var(--red); box-shadow: 3px 3px 0 var(--ink); font-size: 13px; font-weight: 900; letter-spacing: .06em; cursor: pointer; transition: transform .15s, box-shadow .15s, background .15s; }
-      .submit-button:hover { background: #cf3829; transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--ink); }
-      .submit-button:active { transform: translate(3px, 3px); box-shadow: none; }
-      .submit-button:disabled { opacity: .65; cursor: wait; }
-      .arrow { font-size: 20px; }
-      .message { display: none; margin-top: 15px; padding: 12px 14px; border-left: 4px solid; font-size: 13px; line-height: 1.5; }
-      .message.success { display: block; color: #245d37; background: #edf7ee; border-color: #41935a; }
-      .message.error { display: block; color: #8c3028; background: #fff0ee; border-color: var(--red); }
-      .footnote { margin: 14px 0 0; color: #8b837a; font-size: 11px; line-height: 1.5; }
-      .posts-section { margin-top: 66px; }
-      .posts-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 20px; }
-      .posts-heading h2 { margin: 10px 0 5px; font-size: clamp(29px, 4vw, 42px); letter-spacing: -.065em; }
-      .posts-heading p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
-      .post-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 22px; align-items: start; }
-      .post-compose, .post-card { border: 2px solid var(--ink); background: var(--card); box-shadow: 4px 4px 0 var(--ink); }
-      .post-compose { padding: 24px; }
-      .post-compose h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: -.04em; }
-      .post-compose > p { margin: 0 0 18px; color: var(--muted); font-size: 12px; line-height: 1.6; }
-      .post-compose .field { margin-bottom: 13px; }
-      .post-compose textarea { min-height: 125px; }
-      .post-submit { display: flex; justify-content: center; gap: 8px; align-items: center; width: 100%; min-height: 46px; border: 2px solid var(--ink); background: var(--ink); color: white; font-size: 12px; font-weight: 900; letter-spacing: .04em; cursor: pointer; }
-      .post-submit:hover { background: #393431; }
-      .post-submit:disabled { opacity: .6; cursor: wait; }
-      .post-feed { display: grid; gap: 15px; }
-      .feed-topline { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1px; color: var(--muted); font-size: 12px; }
-      .feed-topline strong { color: var(--ink); font-size: 14px; }
-      .post-card { padding: 20px; }
-      .post-meta { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
-      .post-author { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 850; }
-      .post-avatar { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--ink); background: #f4dfb8; font-size: 16px; }
-      .post-time { color: #928a81; font-size: 10px; white-space: nowrap; }
-      .post-body { margin: 15px 0; font-size: 14px; line-height: 1.75; overflow-wrap: anywhere; white-space: pre-wrap; }
-      .post-actions { display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--line); padding-bottom: 13px; }
-      .reaction-button, .comment-count { min-height: 34px; padding: 0 10px; border: 1px solid var(--line); background: white; color: var(--ink); font-size: 12px; cursor: pointer; }
-      .reaction-button:hover, .reaction-button.is-active { border-color: var(--red); background: #fff0ed; }
-      .comment-count { margin-left: auto; cursor: default; color: var(--muted); }
-      .comments { display: grid; gap: 10px; margin: 13px 0; }
-      .comment { padding: 10px 12px; background: #f5f0e8; font-size: 12px; line-height: 1.55; overflow-wrap: anywhere; white-space: pre-wrap; }
-      .comment strong { margin-right: 6px; }
-      .comment-form { display: flex; gap: 8px; }
-      .comment-form input { height: 39px; min-width: 0; padding: 8px 10px; font-size: 12px; }
-      .comment-form button { flex: 0 0 auto; padding: 0 12px; border: 1px solid var(--ink); background: var(--ink); color: white; font-size: 11px; font-weight: 800; cursor: pointer; }
-      .feed-empty { padding: 28px 20px; border: 1px dashed #b9afa3; color: var(--muted); background: rgba(255,253,249,.65); text-align: center; font-size: 13px; line-height: 1.7; }
-      .feed-status { padding: 11px 13px; border-left: 3px solid var(--red); color: #6b5143; background: #f4dfb8; font-size: 11px; line-height: 1.6; }
-      footer { max-width: 1160px; margin: auto; padding: 0 28px 26px; display: flex; justify-content: space-between; color: #837b72; font-size: 11px; letter-spacing: .04em; }
+      .community-link.primary {
+        color: white;
+        background: #087f68;
+      }
+      .community-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 3px 3px 0 var(--ink);
+      }
+      .community-link span:last-child {
+        font-size: 17px;
+      }
+      .submit-section {
+        display: grid;
+        grid-template-columns: 0.72fr 1.28fr;
+        margin-top: 58px;
+        border: 2px solid var(--ink);
+        background: var(--card);
+        box-shadow: 8px 8px 0 var(--ink);
+      }
+      .section-aside {
+        padding: 34px;
+        color: white;
+        background: var(--ink);
+      }
+      .section-aside .eyebrow {
+        color: #ff9181;
+      }
+      .section-aside .eyebrow::before {
+        background: #ff9181;
+      }
+      .section-aside h2 {
+        margin: 22px 0 12px;
+        font-size: 32px;
+        line-height: 1.05;
+        letter-spacing: -0.06em;
+      }
+      .section-aside p {
+        margin: 0;
+        color: #c9c2bb;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .aside-stamp {
+        display: inline-block;
+        margin-top: 28px;
+        padding: 8px 11px;
+        border: 1px solid #77706b;
+        color: #f2ece4;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        transform: rotate(-3deg);
+      }
+      .form-wrap {
+        padding: 34px 38px;
+      }
+      .form-heading {
+        margin: 0 0 7px;
+        font-size: 22px;
+        letter-spacing: -0.04em;
+      }
+      .form-hint {
+        margin: 0 0 25px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .field {
+        margin-bottom: 19px;
+      }
+      label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: 13px;
+        font-weight: 800;
+      }
+      .optional {
+        color: #898179;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      input,
+      textarea {
+        display: block;
+        width: 100%;
+        border: 1px solid #cfc7bc;
+        border-radius: 3px;
+        background: #fff;
+        padding: 13px 14px;
+        color: var(--ink);
+        outline: none;
+        transition:
+          border-color 0.18s,
+          box-shadow 0.18s;
+      }
+      input {
+        height: 48px;
+      }
+      textarea {
+        min-height: 94px;
+        resize: vertical;
+        line-height: 1.5;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #a49c93;
+      }
+      input:focus,
+      textarea:focus {
+        border-color: var(--red);
+        box-shadow: 0 0 0 3px rgba(228, 67, 50, 0.13);
+      }
+      .submit-button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 52px;
+        padding: 0 17px;
+        border: 2px solid var(--ink);
+        color: white;
+        background: var(--red);
+        box-shadow: 3px 3px 0 var(--ink);
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s,
+          background 0.15s;
+      }
+      .submit-button:hover {
+        background: #cf3829;
+        transform: translate(1px, 1px);
+        box-shadow: 2px 2px 0 var(--ink);
+      }
+      .submit-button:active {
+        transform: translate(3px, 3px);
+        box-shadow: none;
+      }
+      .submit-button:disabled {
+        opacity: 0.65;
+        cursor: wait;
+      }
+      .arrow {
+        font-size: 20px;
+      }
+      .message {
+        display: none;
+        margin-top: 15px;
+        padding: 12px 14px;
+        border-left: 4px solid;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .message.success {
+        display: block;
+        color: #245d37;
+        background: #edf7ee;
+        border-color: #41935a;
+      }
+      .message.error {
+        display: block;
+        color: #8c3028;
+        background: #fff0ee;
+        border-color: var(--red);
+      }
+      .footnote {
+        margin: 14px 0 0;
+        color: #8b837a;
+        font-size: 11px;
+        line-height: 1.5;
+      }
+      .posts-section {
+        margin-top: 66px;
+      }
+      .posts-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      .posts-heading h2 {
+        margin: 10px 0 5px;
+        font-size: clamp(29px, 4vw, 42px);
+        letter-spacing: -0.065em;
+      }
+      .posts-heading p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .post-layout {
+        display: grid;
+        grid-template-columns: 0.82fr 1.18fr;
+        gap: 22px;
+        align-items: start;
+      }
+      .post-compose,
+      .post-card {
+        border: 2px solid var(--ink);
+        background: var(--card);
+        box-shadow: 4px 4px 0 var(--ink);
+      }
+      .post-compose {
+        padding: 24px;
+      }
+      .post-compose h3 {
+        margin: 0 0 6px;
+        font-size: 18px;
+        letter-spacing: -0.04em;
+      }
+      .post-compose > p {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }
+      .post-compose .field {
+        margin-bottom: 13px;
+      }
+      .post-compose textarea {
+        min-height: 125px;
+      }
+      .post-submit {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        align-items: center;
+        width: 100%;
+        min-height: 46px;
+        border: 2px solid var(--ink);
+        background: var(--ink);
+        color: white;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+      }
+      .post-submit:hover {
+        background: #393431;
+      }
+      .post-submit:disabled {
+        opacity: 0.6;
+        cursor: wait;
+      }
+      .post-feed {
+        display: grid;
+        gap: 15px;
+      }
+      .feed-topline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .feed-topline strong {
+        color: var(--ink);
+        font-size: 14px;
+      }
+      .post-card {
+        padding: 20px;
+      }
+      .post-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+      }
+      .post-author {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 850;
+      }
+      .post-avatar {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--ink);
+        background: #f4dfb8;
+        font-size: 16px;
+      }
+      .post-time {
+        color: #928a81;
+        font-size: 10px;
+        white-space: nowrap;
+      }
+      .post-body {
+        margin: 15px 0;
+        font-size: 14px;
+        line-height: 1.75;
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+      }
+      .post-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 13px;
+      }
+      .reaction-button,
+      .comment-count {
+        min-height: 34px;
+        padding: 0 10px;
+        border: 1px solid var(--line);
+        background: white;
+        color: var(--ink);
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .reaction-button:hover,
+      .reaction-button.is-active {
+        border-color: var(--red);
+        background: #fff0ed;
+      }
+      .comment-count {
+        margin-left: auto;
+        cursor: default;
+        color: var(--muted);
+      }
+      .comments {
+        display: grid;
+        gap: 10px;
+        margin: 13px 0;
+      }
+      .comment {
+        padding: 10px 12px;
+        background: #f5f0e8;
+        font-size: 12px;
+        line-height: 1.55;
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+      }
+      .comment strong {
+        margin-right: 6px;
+      }
+      .comment-form {
+        display: flex;
+        gap: 8px;
+      }
+      .comment-form input {
+        height: 39px;
+        min-width: 0;
+        padding: 8px 10px;
+        font-size: 12px;
+      }
+      .comment-form button {
+        flex: 0 0 auto;
+        padding: 0 12px;
+        border: 1px solid var(--ink);
+        background: var(--ink);
+        color: white;
+        font-size: 11px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .feed-empty {
+        padding: 28px 20px;
+        border: 1px dashed #b9afa3;
+        color: var(--muted);
+        background: rgba(255, 253, 249, 0.65);
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .feed-status {
+        padding: 11px 13px;
+        border-left: 3px solid var(--red);
+        color: #6b5143;
+        background: #f4dfb8;
+        font-size: 11px;
+        line-height: 1.6;
+      }
+      footer {
+        max-width: 1160px;
+        margin: auto;
+        padding: 0 28px 26px;
+        display: flex;
+        justify-content: space-between;
+        color: #837b72;
+        font-size: 11px;
+        letter-spacing: 0.04em;
+      }
       @media (max-width: 760px) {
-        .site-header { height: 66px; padding: 0 20px; }
-        main { padding: 39px 20px 54px; }
-        .hero { grid-template-columns: 1fr; gap: 8px; }
-        h1 { max-width: 550px; font-size: clamp(48px, 12vw, 68px); }
-        .intro { font-size: 15px; }
-        .visual { min-height: 270px; margin-top: 8px; }
-        .manga-panel { width: min(290px, 70%); }
-        .submit-section { grid-template-columns: 1fr; margin-top: 32px; }
-        .section-aside { padding: 25px; }
-        .section-aside h2 { margin-top: 16px; font-size: 27px; }
-        .aside-stamp { margin-top: 17px; }
-        .community { grid-template-columns: 1fr; gap: 18px; margin-top: 24px; padding: 22px; }
-        .community-actions { flex-direction: row; flex-wrap: wrap; }
-        .community-link { flex: 1 1 180px; }
-        .form-wrap { padding: 27px 24px; }
-        .posts-section { margin-top: 48px; }
-        .posts-heading { align-items: start; flex-direction: column; gap: 8px; }
-        .post-layout { grid-template-columns: 1fr; }
-        .post-compose { padding: 21px; }
-        .post-card { padding: 16px; }
-        footer { padding: 0 20px 22px; gap: 15px; flex-wrap: wrap; }
+        .site-header {
+          height: 66px;
+          padding: 0 20px;
+        }
+        main {
+          padding: 39px 20px 54px;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+        h1 {
+          max-width: 550px;
+          font-size: clamp(48px, 12vw, 68px);
+        }
+        .intro {
+          font-size: 15px;
+        }
+        .visual {
+          min-height: 270px;
+          margin-top: 8px;
+        }
+        .manga-panel {
+          width: min(290px, 70%);
+        }
+        .submit-section {
+          grid-template-columns: 1fr;
+          margin-top: 32px;
+        }
+        .section-aside {
+          padding: 25px;
+        }
+        .section-aside h2 {
+          margin-top: 16px;
+          font-size: 27px;
+        }
+        .aside-stamp {
+          margin-top: 17px;
+        }
+        .community {
+          grid-template-columns: 1fr;
+          gap: 18px;
+          margin-top: 24px;
+          padding: 22px;
+        }
+        .community-actions {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+        .community-link {
+          flex: 1 1 180px;
+        }
+        .form-wrap {
+          padding: 27px 24px;
+        }
+        .posts-section {
+          margin-top: 48px;
+        }
+        .posts-heading {
+          align-items: start;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .post-layout {
+          grid-template-columns: 1fr;
+        }
+        .post-compose {
+          padding: 21px;
+        }
+        .post-card {
+          padding: 16px;
+        }
+        footer {
+          padding: 0 20px 22px;
+          gap: 15px;
+          flex-wrap: wrap;
+        }
       }
-      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -196,13 +826,26 @@
         <div class="hero-copy">
           <div class="eyebrow">Cộng đồng đọc truyện</div>
           <h1 id="page-title">Truyện hay<br />bắt đầu từ <span>bạn.</span></h1>
-          <p class="intro">Có bộ manga nào khiến bạn muốn <strong>mọi người cũng biết đến</strong>? Gửi tên truyện cho Manga Radar — đề xuất của bạn có thể mở ra cuộc khám phá tiếp theo cho cả cộng đồng.</p>
+          <p class="intro">
+            Có bộ manga nào khiến bạn muốn
+            <strong>mọi người cũng biết đến</strong>? Gửi tên truyện cho Manga
+            Radar — đề xuất của bạn có thể mở ra cuộc khám phá tiếp theo cho cả
+            cộng đồng.
+          </p>
         </div>
         <div class="visual" aria-hidden="true">
-          <div class="sunburst"></div><span class="spark spark-one">✳</span><span class="spark spark-two">✦</span>
+          <div class="sunburst"></div>
+          <span class="spark spark-one">✳</span
+          ><span class="spark spark-two">✦</span>
           <div class="manga-panel">
-            <div class="panel-sky"></div><div class="panel-moon"></div><div class="panel-horizon"></div><div class="panel-ground"></div>
-            <div class="panel-caption">NEXT READ?</div><div class="panel-copy">MỖI TRANG TRUYỆN<br />MỞ RA MỘT THẾ GIỚI</div>
+            <div class="panel-sky"></div>
+            <div class="panel-moon"></div>
+            <div class="panel-horizon"></div>
+            <div class="panel-ground"></div>
+            <div class="panel-caption">NEXT READ?</div>
+            <div class="panel-copy">
+              MỖI TRANG TRUYỆN<br />MỞ RA MỘT THẾ GIỚI
+            </div>
           </div>
         </div>
       </section>
@@ -211,37 +854,94 @@
         <div class="community-copy">
           <p class="community-kicker">Manga Radar · Cộng đồng</p>
           <h2 id="community-title">Vào box để cùng chơi nhé! 🔥</h2>
-          <p>Minigame hàng tuần, thông báo lịch mở bán, link order và tin restock sớm nhất — vào nhóm chat để không bỏ lỡ. Nhóm Messenger dành cho chat và trò chuyện bên lề.</p>
+          <p>
+            Minigame hàng tuần, thông báo lịch mở bán, link order và tin restock
+            sớm nhất — vào nhóm chat để không bỏ lỡ. Nhóm Messenger dành cho
+            chat và trò chuyện bên lề.
+          </p>
         </div>
         <div class="community-actions">
-          <a class="community-link primary" href="https://zalo.me/g/zikbdmdxmv98lto9ce2s" target="_blank" rel="noopener noreferrer"><span>VÀO NHÓM ZALO</span><span aria-hidden="true">↗</span></a>
-          <a class="community-link" href="https://m.me/cm/AbZk-7tVXxOfpzBX/?send_source=cm:copy_invite_link" target="_blank" rel="noopener noreferrer"><span>NHÓM MESSENGER</span><span aria-hidden="true">↗</span></a>
+          <a
+            class="community-link primary"
+            href="https://zalo.me/g/zikbdmdxmv98lto9ce2s"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span>VÀO NHÓM ZALO</span><span aria-hidden="true">↗</span></a
+          >
+          <a
+            class="community-link"
+            href="https://m.me/cm/AbZk-7tVXxOfpzBX/?send_source=cm:copy_invite_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span>NHÓM MESSENGER</span><span aria-hidden="true">↗</span></a
+          >
         </div>
       </section>
 
-      <section class="submit-section" id="gui-de-xuat" aria-labelledby="form-title">
+      <section
+        class="submit-section"
+        id="gui-de-xuat"
+        aria-labelledby="form-title"
+      >
         <aside class="section-aside">
           <div class="eyebrow">Đến lượt bạn</div>
           <h2>Một cái tên.<br />Một cuộc phiêu lưu mới.</h2>
-          <p>Điền tên bộ truyện bạn yêu thích. Nếu muốn, hãy kể thêm điều gì khiến bộ truyện ấy đáng đọc.</p>
+          <p>
+            Điền tên bộ truyện bạn yêu thích. Nếu muốn, hãy kể thêm điều gì
+            khiến bộ truyện ấy đáng đọc.
+          </p>
           <span class="aside-stamp">CÙNG NHAU KHÁM PHÁ</span>
         </aside>
         <div class="form-wrap">
           <h2 class="form-heading" id="form-title">Gửi đề xuất manga</h2>
-          <p class="form-hint">Chỉ mất vài giây. Tên truyện là thông tin bắt buộc.</p>
+          <p class="form-hint">
+            Chỉ mất vài giây. Tên truyện là thông tin bắt buộc.
+          </p>
           <form id="mangaForm">
             <div class="field">
-              <label for="mangaName">Tên manga <span aria-hidden="true" style="color:var(--red)">*</span></label>
-              <input type="text" id="mangaName" name="mangaName" placeholder="Ví dụ: Dandadan, Frieren..." maxlength="100" autocomplete="off" required />
+              <label for="mangaName"
+                >Tên manga
+                <span aria-hidden="true" style="color: var(--red)"
+                  >*</span
+                ></label
+              >
+              <input
+                type="text"
+                id="mangaName"
+                name="mangaName"
+                placeholder="Ví dụ: Dandadan, Frieren..."
+                maxlength="100"
+                autocomplete="off"
+                required
+              />
             </div>
             <div class="field">
-              <label for="message">Vì sao bạn đề xuất truyện này? <span class="optional">Không bắt buộc</span></label>
-              <textarea id="message" name="message" placeholder="Một nhân vật bạn thích, nét vẽ cuốn hút, hay đơn giản là ‘đọc đi rồi biết’..." maxlength="500"></textarea>
+              <label for="message"
+                >Vì sao bạn đề xuất truyện này?
+                <span class="optional">Không bắt buộc</span></label
+              >
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Một nhân vật bạn thích, nét vẽ cuốn hút, hay đơn giản là ‘đọc đi rồi biết’..."
+                maxlength="500"
+              ></textarea>
             </div>
-            <button class="submit-button" type="submit" id="submitButton"><span>GỬI ĐỀ XUẤT</span><span class="arrow" aria-hidden="true">↗</span></button>
+            <button class="submit-button" type="submit" id="submitButton">
+              <span>GỬI ĐỀ XUẤT</span
+              ><span class="arrow" aria-hidden="true">↗</span>
+            </button>
           </form>
-          <div id="resultMessage" class="message" role="status" aria-live="polite"></div>
-          <p class="footnote">Bằng việc gửi đề xuất, bạn giúp cộng đồng Manga Radar tìm thêm những câu chuyện đáng nhớ.</p>
+          <div
+            id="resultMessage"
+            class="message"
+            role="status"
+            aria-live="polite"
+          ></div>
+          <p class="footnote">
+            Bằng việc gửi đề xuất, bạn giúp cộng đồng Manga Radar tìm thêm những
+            câu chuyện đáng nhớ.
+          </p>
         </div>
       </section>
 
@@ -250,37 +950,75 @@
           <div>
             <div class="eyebrow">Bảng tin cộng đồng</div>
             <h2 id="posts-title">Góc đăng bài</h2>
-            <p>Chia sẻ bộ truyện bạn đang đọc, đặt câu hỏi và trò chuyện cùng mọi người.</p>
+            <p>
+              Chia sẻ bộ truyện bạn đang đọc, đặt câu hỏi và trò chuyện cùng mọi
+              người.
+            </p>
           </div>
         </div>
         <div class="post-layout">
           <form class="post-compose" id="postForm">
             <h3>Bạn đang nghĩ gì?</h3>
-            <p>Đăng cảm nhận, tìm bạn đọc chung hoặc hỏi cộng đồng về một bộ manga.</p>
+            <p>
+              Đăng cảm nhận, tìm bạn đọc chung hoặc hỏi cộng đồng về một bộ
+              manga.
+            </p>
             <div class="field">
               <label for="postName">Tên hiển thị</label>
-              <input id="postName" name="postName" maxlength="40" placeholder="Ví dụ: Mèo mê manga" required />
+              <input
+                id="postName"
+                name="postName"
+                maxlength="40"
+                placeholder="Ví dụ: Mèo mê manga"
+                required
+              />
             </div>
             <div class="field">
               <label for="postBody">Nội dung bài viết</label>
-              <textarea id="postBody" name="postBody" maxlength="1000" placeholder="Viết điều bạn muốn chia sẻ..." required></textarea>
+              <textarea
+                id="postBody"
+                name="postBody"
+                maxlength="1000"
+                placeholder="Viết điều bạn muốn chia sẻ..."
+                required
+              ></textarea>
             </div>
-            <button class="post-submit" id="postSubmit" type="submit">ĐĂNG BÀI <span aria-hidden="true">↗</span></button>
-            <div class="feed-status" id="postStatus" role="status" aria-live="polite" style="margin-top:12px">Bảng tin sẽ hoạt động sau khi kết nối Google Apps Script.</div>
+            <button class="post-submit" id="postSubmit" type="submit">
+              ĐĂNG BÀI <span aria-hidden="true">↗</span>
+            </button>
+            <div
+              class="feed-status"
+              id="postStatus"
+              role="status"
+              aria-live="polite"
+              style="margin-top: 12px"
+            >
+              Bảng tin sẽ hoạt động sau khi kết nối Google Apps Script.
+            </div>
           </form>
           <div class="post-feed" id="postFeed" aria-live="polite">
-            <div class="feed-topline"><strong>Bài viết mới</strong><span id="postCount">Đang tải...</span></div>
-            <div class="feed-empty" id="feedEmpty">Đang kết nối bảng tin cộng đồng...</div>
+            <div class="feed-topline">
+              <strong>Bài viết mới</strong
+              ><span id="postCount">Đang tải...</span>
+            </div>
+            <div class="feed-empty" id="feedEmpty">
+              Đang kết nối bảng tin cộng đồng...
+            </div>
           </div>
         </div>
       </section>
     </main>
-    <footer><span>© Manga Radar · Đọc thêm, khám phá thêm.</span><span>Được tạo nên bởi những người yêu manga.</span></footer>
+    <footer>
+      <span>© Manga Radar · Đọc thêm, khám phá thêm.</span
+      ><span>Được tạo nên bởi những người yêu manga.</span>
+    </footer>
 
     <script>
-      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzP3wMIlp_tPxP_L5ypZe6LpG6WMwdZ8B8oiaapnhbU9D7XDfmb37XsFgIbfLT9XgzJlg/exec";
+      const GOOGLE_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbzP3wMIlp_tPxP_L5ypZe6LpG6WMwdZ8B8oiaapnhbU9D7XDfmb37XsFgIbfLT9XgzJlg/exec";
       // Deploy the companion Google Apps Script and paste its /exec URL here.
-      const POSTS_SCRIPT_URL = "";
+      const POSTS_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbz8wX9mjVl0DVIo24HMFmT8pS3cybYT8yDyIk2PMnHtHPghlD1uRA9IgYY67XtAyENb/exec";
       const form = document.getElementById("mangaForm");
       const mangaName = document.getElementById("mangaName");
       const message = document.getElementById("message");
@@ -310,8 +1048,15 @@
           const formData = new URLSearchParams();
           formData.append("tenManga", name);
           formData.append("loiNhan", note);
-          await fetch(GOOGLE_SCRIPT_URL, { method: "POST", mode: "no-cors", body: formData });
-          showMessage("Đã nhận đề xuất! Cảm ơn bạn đã góp thêm một câu chuyện cho Manga Radar ✨", "success");
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: formData,
+          });
+          showMessage(
+            "Đã nhận đề xuất! Cảm ơn bạn đã góp thêm một câu chuyện cho Manga Radar ✨",
+            "success",
+          );
           form.reset();
         } catch (error) {
           console.error(error);
@@ -326,13 +1071,17 @@
         clearTimeout(messageTimer);
         resultMessage.textContent = text;
         resultMessage.className = `message ${type}`;
-        messageTimer = setTimeout(() => { resultMessage.className = "message"; }, 6000);
+        messageTimer = setTimeout(() => {
+          resultMessage.className = "message";
+        }, 6000);
       }
 
       postForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         if (!POSTS_SCRIPT_URL) {
-          setPostStatus("Chưa kết nối bảng tin. Hãy triển khai mã trong thư mục apps-script rồi dán URL /exec vào POSTS_SCRIPT_URL.");
+          setPostStatus(
+            "Chưa kết nối bảng tin. Hãy triển khai mã trong thư mục apps-script rồi dán URL /exec vào POSTS_SCRIPT_URL.",
+          );
           return;
         }
         const name = document.getElementById("postName").value.trim();
@@ -347,7 +1096,9 @@
           await loadPosts();
         } catch (error) {
           console.error(error);
-          setPostStatus("Chưa gửi được bài viết. Kiểm tra kết nối rồi thử lại nhé.");
+          setPostStatus(
+            "Chưa gửi được bài viết. Kiểm tra kết nối rồi thử lại nhé.",
+          );
         } finally {
           postSubmit.disabled = false;
           postSubmit.firstChild.textContent = "ĐĂNG BÀI ";
@@ -357,8 +1108,11 @@
       async function loadPosts() {
         if (!POSTS_SCRIPT_URL) {
           postCount.textContent = "Chưa kết nối";
-          feedEmpty.textContent = "Bảng tin sẽ hiện bài viết tại đây sau khi kết nối Google Apps Script.";
-          setPostStatus("Để mọi người cùng xem, bình luận và thả cảm xúc, cần triển khai backend Google Apps Script.");
+          feedEmpty.textContent =
+            "Bảng tin sẽ hiện bài viết tại đây sau khi kết nối Google Apps Script.";
+          setPostStatus(
+            "Để mọi người cùng xem, bình luận và thả cảm xúc, cần triển khai backend Google Apps Script.",
+          );
           return;
         }
         try {
@@ -368,8 +1122,11 @@
         } catch (error) {
           console.error(error);
           postCount.textContent = "Không tải được";
-          feedEmpty.textContent = "Không tải được bài viết. Vui lòng thử tải lại trang.";
-          setPostStatus("Không thể kết nối bảng tin. Kiểm tra URL triển khai Apps Script.");
+          feedEmpty.textContent =
+            "Không tải được bài viết. Vui lòng thử tải lại trang.";
+          setPostStatus(
+            "Không thể kết nối bảng tin. Kiểm tra URL triển khai Apps Script.",
+          );
         }
       }
 
@@ -377,7 +1134,10 @@
         return new Promise((resolve, reject) => {
           const callback = `mangaPostsCallback_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
           const script = document.createElement("script");
-          const timer = setTimeout(() => finish(new Error("Request timed out")), 12000);
+          const timer = setTimeout(
+            () => finish(new Error("Request timed out")),
+            12000,
+          );
           function finish(error, data) {
             clearTimeout(timer);
             delete window[callback];
@@ -393,13 +1153,21 @@
 
       async function postRequest(payload) {
         const data = new URLSearchParams(payload);
-        await fetch(POSTS_SCRIPT_URL, { method: "POST", mode: "no-cors", body: data });
+        await fetch(POSTS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: data,
+        });
       }
 
       function renderPosts(posts) {
-        postFeed.querySelectorAll(".post-card").forEach((card) => card.remove());
+        postFeed
+          .querySelectorAll(".post-card")
+          .forEach((card) => card.remove());
         feedEmpty.hidden = posts.length > 0;
-        if (!posts.length) feedEmpty.textContent = "Chưa có bài viết nào. Hãy là người đầu tiên chia sẻ với cộng đồng!";
+        if (!posts.length)
+          feedEmpty.textContent =
+            "Chưa có bài viết nào. Hãy là người đầu tiên chia sẻ với cộng đồng!";
         postCount.textContent = `${posts.length} bài viết`;
         posts.forEach((post) => {
           const card = document.createElement("article");
@@ -432,9 +1200,20 @@
             reaction.setAttribute("aria-label", `Thả cảm xúc ${emoji}`);
             reaction.addEventListener("click", async () => {
               reaction.disabled = true;
-              try { await postRequest({ action: "react", postId: post.id, emoji, clientId }); await loadPosts(); }
-              catch (error) { console.error(error); setPostStatus("Chưa gửi được cảm xúc. Thử lại nhé."); }
-              finally { reaction.disabled = false; }
+              try {
+                await postRequest({
+                  action: "react",
+                  postId: post.id,
+                  emoji,
+                  clientId,
+                });
+                await loadPosts();
+              } catch (error) {
+                console.error(error);
+                setPostStatus("Chưa gửi được cảm xúc. Thử lại nhé.");
+              } finally {
+                reaction.disabled = false;
+              }
             });
             actions.appendChild(reaction);
           });
@@ -472,10 +1251,20 @@
             event.preventDefault();
             commentButton.disabled = true;
             try {
-              await postRequest({ action: "comment", postId: post.id, name: commentName.value.trim(), body: commentBody.value.trim(), clientId });
+              await postRequest({
+                action: "comment",
+                postId: post.id,
+                name: commentName.value.trim(),
+                body: commentBody.value.trim(),
+                clientId,
+              });
               await loadPosts();
-            } catch (error) { console.error(error); setPostStatus("Chưa gửi được bình luận. Thử lại nhé."); }
-            finally { commentButton.disabled = false; }
+            } catch (error) {
+              console.error(error);
+              setPostStatus("Chưa gửi được bình luận. Thử lại nhé.");
+            } finally {
+              commentButton.disabled = false;
+            }
           });
           card.append(meta, body, actions, comments, commentForm);
           postFeed.appendChild(card);
@@ -486,18 +1275,28 @@
         const key = "manga-radar-client-id";
         try {
           let id = localStorage.getItem(key);
-          if (!id) { id = crypto.randomUUID(); localStorage.setItem(key, id); }
+          if (!id) {
+            id = crypto.randomUUID();
+            localStorage.setItem(key, id);
+          }
           return id;
-        } catch { return `guest-${Math.random().toString(36).slice(2)}`; }
+        } catch {
+          return `guest-${Math.random().toString(36).slice(2)}`;
+        }
       }
 
       function formatDate(value) {
         const date = new Date(value);
         if (Number.isNaN(date.getTime())) return "vừa xong";
-        return new Intl.DateTimeFormat("vi-VN", { dateStyle: "medium", timeStyle: "short" }).format(date);
+        return new Intl.DateTimeFormat("vi-VN", {
+          dateStyle: "medium",
+          timeStyle: "short",
+        }).format(date);
       }
 
-      function setPostStatus(text) { postStatus.textContent = text; }
+      function setPostStatus(text) {
+        postStatus.textContent = text;
+      }
       loadPosts();
     </script>
   </body>
