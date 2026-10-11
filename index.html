@@ -80,6 +80,159 @@
         text-transform: uppercase;
         font-weight: 750;
       }
+      .account-controls {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+      .account-button {
+        min-height: 38px;
+        padding: 0 13px;
+        border: 1px solid var(--ink);
+        background: var(--ink);
+        color: white;
+        font-size: 11px;
+        font-weight: 850;
+        cursor: pointer;
+      }
+      .account-button.secondary {
+        background: transparent;
+        color: var(--ink);
+      }
+      .account-user {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .account-avatar {
+        display: grid;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        border: 1px solid var(--ink);
+        background: #f4dfb8;
+        font-size: 17px;
+      }
+      .auth-overlay[hidden],
+      .account-user[hidden],
+      .account-controls > [hidden] {
+        display: none;
+      }
+      .auth-overlay {
+        position: fixed;
+        z-index: 100;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 18px;
+        background: rgba(22, 19, 17, 0.62);
+      }
+      .auth-modal {
+        position: relative;
+        width: min(100%, 410px);
+        max-height: min(90vh, 720px);
+        overflow: auto;
+        padding: 28px;
+        border: 2px solid var(--ink);
+        background: var(--card);
+        box-shadow: 7px 7px 0 var(--ink);
+      }
+      .auth-close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        width: 34px;
+        height: 34px;
+        border: 0;
+        background: transparent;
+        color: var(--ink);
+        font-size: 25px;
+        cursor: pointer;
+      }
+      .auth-modal h2 {
+        margin: 0 35px 7px 0;
+        font-size: 25px;
+        letter-spacing: -0.05em;
+      }
+      .auth-modal > p {
+        margin: 0 0 20px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }
+      .auth-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+      .auth-tabs button {
+        flex: 1;
+        min-height: 42px;
+        border: 1px solid var(--ink);
+        background: white;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 850;
+        cursor: pointer;
+      }
+      .auth-tabs button:first-child {
+        background: var(--red);
+        color: white;
+      }
+      .auth-form .field {
+        margin-bottom: 14px;
+      }
+      .auth-submit {
+        width: 100%;
+        min-height: 46px;
+        border: 2px solid var(--ink);
+        background: var(--ink);
+        color: white;
+        font-size: 12px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+      .auth-submit:disabled {
+        opacity: 0.6;
+        cursor: wait;
+      }
+      .auth-message {
+        min-height: 18px;
+        margin-top: 12px;
+        color: #9b3a2e;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .avatar-picker {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .avatar-choice {
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--line);
+        background: white;
+        font-size: 21px;
+        cursor: pointer;
+      }
+      .avatar-choice.is-selected {
+        border: 2px solid var(--red);
+        background: #fff0ed;
+      }
+      .auth-logout {
+        width: 100%;
+        min-height: 40px;
+        margin-top: 10px;
+        border: 1px solid var(--line);
+        background: white;
+        color: var(--ink);
+        font-size: 11px;
+        font-weight: 800;
+        cursor: pointer;
+      }
       main {
         max-width: 1160px;
         padding: 56px 28px 68px;
@@ -499,6 +652,45 @@
         background: #fff0ee;
         border-color: var(--red);
       }
+      .global-loader[hidden] {
+        display: none;
+      }
+      .global-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background: rgb(35 29 25 / 38%);
+        backdrop-filter: blur(3px);
+      }
+      .loader-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 210px;
+        padding: 18px 22px;
+        border: 2px solid var(--ink);
+        background: var(--paper, #fffaf2);
+        box-shadow: 5px 5px 0 var(--ink);
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .loader-spinner {
+        width: 27px;
+        height: 27px;
+        flex: 0 0 27px;
+        border: 4px solid #e8d9cc;
+        border-top-color: var(--red, #bd493c);
+        border-right-color: var(--red, #bd493c);
+        border-radius: 50%;
+        animation: loader-spin 0.75s linear infinite;
+      }
+      @keyframes loader-spin {
+        to { transform: rotate(360deg); }
+      }
       .footnote {
         margin: 14px 0 0;
         color: #8b837a;
@@ -551,6 +743,21 @@
         color: var(--muted);
         font-size: 12px;
         line-height: 1.6;
+      }
+      .posting-identity {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin: 0 0 14px;
+        padding: 9px 10px;
+        background: #f5f0e8;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .posting-identity .post-avatar {
+        flex: 0 0 30px;
+        width: 30px;
+        height: 30px;
       }
       .post-compose .field {
         margin-bottom: 13px;
@@ -612,6 +819,14 @@
         font-size: 13px;
         font-weight: 850;
       }
+      .admin-badge {
+        padding: 3px 6px;
+        background: var(--red);
+        color: white;
+        font-size: 9px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+      }
       .post-avatar {
         display: grid;
         place-items: center;
@@ -639,6 +854,18 @@
         gap: 8px;
         border-bottom: 1px solid var(--line);
         padding-bottom: 13px;
+      }
+      .post-delete {
+        margin-left: 8px;
+        border: 0;
+        background: transparent;
+        color: #9b3a2e;
+        font-size: 11px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .post-delete:hover {
+        text-decoration: underline;
       }
       .reaction-button,
       .comment-count {
@@ -696,6 +923,13 @@
         font-weight: 800;
         cursor: pointer;
       }
+      .comment-feedback {
+        min-height: 0;
+        margin-top: 8px;
+        color: #9b3a2e;
+        font-size: 11px;
+        line-height: 1.5;
+      }
       .feed-empty {
         padding: 28px 20px;
         border: 1px dashed #b9afa3;
@@ -713,6 +947,41 @@
         font-size: 11px;
         line-height: 1.6;
       }
+      .back-to-composer {
+        position: fixed;
+        z-index: 20;
+        right: max(22px, env(safe-area-inset-right));
+        bottom: max(22px, env(safe-area-inset-bottom));
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        border: 2px solid var(--ink);
+        border-radius: 50%;
+        background: var(--red);
+        color: white;
+        box-shadow: 3px 3px 0 var(--ink);
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(8px);
+        transition:
+          opacity 0.18s,
+          transform 0.18s,
+          visibility 0.18s;
+      }
+      .back-to-composer.is-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .back-to-composer:hover {
+        background: #cf3829;
+      }
+      .back-to-composer svg {
+        width: 22px;
+        height: 22px;
+      }
       footer {
         max-width: 1160px;
         margin: auto;
@@ -727,6 +996,24 @@
         .site-header {
           height: 66px;
           padding: 0 20px;
+          gap: 8px;
+        }
+        .header-note {
+          display: none;
+        }
+        .account-controls {
+          gap: 6px;
+        }
+        .account-button {
+          padding: 0 9px;
+          font-size: 10px;
+        }
+        .account-user {
+          gap: 5px;
+          font-size: 11px;
+        }
+        #accountDisplayName {
+          display: none;
         }
         main {
           padding: 39px 20px 54px;
@@ -813,13 +1100,139 @@
     </style>
   </head>
   <body>
+    <div class="global-loader" id="globalLoader" hidden role="status" aria-live="polite" aria-atomic="true">
+      <div class="loader-card">
+        <span class="loader-spinner" aria-hidden="true"></span>
+        <span id="globalLoaderText">Đang tải...</span>
+      </div>
+    </div>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Manga Radar, về đầu trang">
         <span class="brand-mark" aria-hidden="true">漫</span>
         <span class="brand-name">MANGA RADAR</span>
       </a>
       <span class="header-note">Góc của người mê manga</span>
+      <div class="account-controls">
+        <button class="account-button" id="openAuthButton" type="button">
+          ĐĂNG NHẬP
+        </button>
+        <div class="account-user" id="accountUser" hidden>
+          <span class="account-avatar" id="accountAvatar" aria-hidden="true"
+            >📚</span
+          >
+          <span id="accountDisplayName"></span>
+          <button
+            class="account-button secondary"
+            id="profileButton"
+            type="button"
+          >
+            HỒ SƠ
+          </button>
+          <button
+            class="account-button secondary"
+            id="logoutButton"
+            type="button"
+          >
+            THOÁT
+          </button>
+        </div>
+      </div>
     </header>
+
+    <div class="auth-overlay" id="authOverlay" hidden>
+      <section
+        class="auth-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="authTitle"
+      >
+        <button
+          class="auth-close"
+          id="authClose"
+          type="button"
+          aria-label="Đóng"
+        >
+          ×
+        </button>
+        <h2 id="authTitle">Tham gia Manga Radar</h2>
+        <p id="authDescription">
+          Đăng nhập để đăng bài, bình luận và thả cảm xúc.
+        </p>
+        <div class="auth-choice" id="authChoice">
+          <div class="auth-tabs">
+            <button id="showLoginButton" type="button">ĐĂNG NHẬP</button>
+            <button id="showRegisterButton" type="button">TẠO TÀI KHOẢN</button>
+          </div>
+        </div>
+        <form class="auth-form" id="loginForm" hidden>
+          <div class="field">
+            <label for="loginUsername">Tên tài khoản</label
+            ><input
+              id="loginUsername"
+              autocomplete="username"
+              maxlength="24"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="loginPassword">Mật khẩu</label
+            ><input
+              id="loginPassword"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <button class="auth-submit" type="submit">ĐĂNG NHẬP</button>
+        </form>
+        <form class="auth-form" id="registerForm" hidden>
+          <div class="field">
+            <label for="registerUsername">Tên tài khoản</label
+            ><input
+              id="registerUsername"
+              autocomplete="username"
+              minlength="3"
+              maxlength="24"
+              placeholder="3–24 chữ cái, số hoặc _"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="registerPassword">Mật khẩu</label
+            ><input
+              id="registerPassword"
+              type="password"
+              autocomplete="new-password"
+              minlength="8"
+              maxlength="128"
+              placeholder="Ít nhất 8 ký tự"
+              required
+            />
+          </div>
+          <button class="auth-submit" type="submit">TẠO TÀI KHOẢN</button>
+        </form>
+        <form class="auth-form" id="profileForm" hidden>
+          <div class="field">
+            <label for="displayNameInput">Tên hiển thị</label
+            ><input id="displayNameInput" maxlength="40" required />
+          </div>
+          <div class="field">
+            <label>Chọn avatar</label>
+            <div class="avatar-picker" id="avatarPicker"></div>
+          </div>
+          <button class="auth-submit" type="submit">LƯU HỒ SƠ</button>
+          <button class="auth-logout" id="profileLogoutButton" type="button">
+            Đăng xuất
+          </button>
+        </form>
+        <div
+          class="auth-message"
+          id="authMessage"
+          role="status"
+          aria-live="polite"
+        ></div>
+      </section>
+    </div>
 
     <main id="top">
       <section class="hero" aria-labelledby="page-title">
@@ -963,15 +1376,11 @@
               Đăng cảm nhận, tìm bạn đọc chung hoặc hỏi cộng đồng về một bộ
               manga.
             </p>
-            <div class="field">
-              <label for="postName">Tên hiển thị</label>
-              <input
-                id="postName"
-                name="postName"
-                maxlength="40"
-                placeholder="Ví dụ: Mèo mê manga"
-                required
-              />
+            <div class="posting-identity" id="postingIdentity">
+              <span class="post-avatar">🔒</span
+              ><span
+                >Đăng nhập để dùng tên và avatar của bạn khi tham gia.</span
+              >
             </div>
             <div class="field">
               <label for="postBody">Nội dung bài viết</label>
@@ -1008,6 +1417,23 @@
         </div>
       </section>
     </main>
+    <button
+      class="back-to-composer"
+      id="backToComposer"
+      type="button"
+      aria-label="Lên đầu phần đăng bài"
+      title="Lên đầu phần đăng bài"
+    >
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M12 19V5M6 11l6-6 6 6"
+          stroke="currentColor"
+          stroke-width="2.4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
     <footer>
       <span>© Manga Radar · Đọc thêm, khám phá thêm.</span
       ><span>Được tạo nên bởi những người yêu manga.</span>
@@ -1019,6 +1445,11 @@
       // Deploy the companion Google Apps Script and paste its /exec URL here.
       const POSTS_SCRIPT_URL =
         "https://script.google.com/macros/s/AKfycbz8wX9mjVl0DVIo24HMFmT8pS3cybYT8yDyIk2PMnHtHPghlD1uRA9IgYY67XtAyENb/exec";
+      const globalLoader = document.getElementById("globalLoader");
+      const globalLoaderText = document.getElementById("globalLoaderText");
+      let activeLoads = 0;
+      let loaderShowTimer = 0;
+      let loaderHideTimer = 0;
       const form = document.getElementById("mangaForm");
       const mangaName = document.getElementById("mangaName");
       const message = document.getElementById("message");
@@ -1030,8 +1461,64 @@
       const postCount = document.getElementById("postCount");
       const feedEmpty = document.getElementById("feedEmpty");
       const postStatus = document.getElementById("postStatus");
-      const clientId = getClientId();
+      const postingIdentity = document.getElementById("postingIdentity");
+      const authOverlay = document.getElementById("authOverlay");
+      const authMessage = document.getElementById("authMessage");
+      const authTitle = document.getElementById("authTitle");
+      const authDescription = document.getElementById("authDescription");
+      const authChoice = document.getElementById("authChoice");
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+      const profileForm = document.getElementById("profileForm");
+      const accountUser = document.getElementById("accountUser");
+      const openAuthButton = document.getElementById("openAuthButton");
+      const avatarOptions = [
+        "📚",
+        "🐱",
+        "🐼",
+        "🐰",
+        "🦊",
+        "🌸",
+        "⭐",
+        "🎭",
+        "🍙",
+        "🦋",
+      ];
+      const backToComposer = document.getElementById("backToComposer");
+      const postsSection = document.querySelector(".posts-section");
+      let sessionToken = "";
+      try {
+        sessionToken = localStorage.getItem("manga-radar-session") || "";
+      } catch {}
+      let currentUser = null;
+      let selectedAvatar = avatarOptions[0];
       let messageTimer;
+      const blockedWords = new Set([
+        "địt",
+        "dit",
+        "đụ",
+        "lồn",
+        "lon",
+        "cặc",
+        "cac",
+        "đéo",
+        "deo",
+        "đm",
+        "dm",
+        "đmm",
+        "dmm",
+        "đcm",
+        "dcm",
+        "vcl",
+        "clgt",
+        "buồi",
+        "buoi",
+        "cứt",
+        "cut",
+        "đĩ",
+        "fuck",
+        "shit",
+      ]);
 
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -1044,6 +1531,7 @@
         }
         button.disabled = true;
         button.querySelector("span").textContent = "ĐANG GỬI...";
+        const stopLoading = startLoading("Đang gửi đề xuất manga...");
         try {
           const formData = new URLSearchParams();
           formData.append("tenManga", name);
@@ -1062,6 +1550,7 @@
           console.error(error);
           showMessage("Chưa gửi được đề xuất. Bạn thử lại sau nhé.", "error");
         } finally {
+          stopLoading();
           button.disabled = false;
           button.querySelector("span").textContent = "GỬI ĐỀ XUẤT";
         }
@@ -1076,6 +1565,207 @@
         }, 6000);
       }
 
+      function startLoading(label = "Đang tải...") {
+        activeLoads += 1;
+        globalLoaderText.textContent = label;
+        clearTimeout(loaderHideTimer);
+        loaderHideTimer = 0;
+        if (activeLoads === 1 && !loaderShowTimer) {
+          loaderShowTimer = window.setTimeout(() => {
+            loaderShowTimer = 0;
+            if (activeLoads > 0) globalLoader.hidden = false;
+          }, 120);
+        }
+        let stopped = false;
+        return () => {
+          if (stopped) return;
+          stopped = true;
+          activeLoads = Math.max(0, activeLoads - 1);
+          if (activeLoads === 0) {
+            clearTimeout(loaderShowTimer);
+            loaderShowTimer = 0;
+            loaderHideTimer = window.setTimeout(() => {
+              globalLoader.hidden = true;
+              loaderHideTimer = 0;
+            }, 180);
+          }
+        };
+      }
+
+      function loadingLabel(action) {
+        const labels = {
+          init: "Đang tải bảng tin...",
+          list: "Đang tải bảng tin...",
+          me: "Đang kiểm tra tài khoản...",
+          register: "Đang tạo tài khoản...",
+          login: "Đang đăng nhập...",
+          logout: "Đang đăng xuất...",
+          update_profile: "Đang lưu hồ sơ...",
+          create_post: "Đang đăng bài...",
+          delete_post: "Đang xóa bài...",
+          comment: "Đang gửi bình luận...",
+          react: "Đang cập nhật cảm xúc...",
+        };
+        return labels[action] || "Đang tải...";
+      }
+
+      openAuthButton.addEventListener("click", () => openAuth("choice"));
+      document.getElementById("authClose").addEventListener("click", closeAuth);
+      document
+        .getElementById("showLoginButton")
+        .addEventListener("click", () => openAuth("login"));
+      document
+        .getElementById("showRegisterButton")
+        .addEventListener("click", () => openAuth("register"));
+      document
+        .getElementById("profileButton")
+        .addEventListener("click", () => openAuth("profile"));
+      authOverlay.addEventListener("click", (event) => {
+        if (event.target === authOverlay) closeAuth();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !authOverlay.hidden) closeAuth();
+      });
+
+      loginForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (!POSTS_SCRIPT_URL)
+          return setAuthMessage("Bảng tin chưa được kết nối với Apps Script.");
+        const button = loginForm.querySelector("button[type=submit]");
+        button.disabled = true;
+        setAuthMessage("Đang đăng nhập...");
+        const token = makeSessionToken();
+        try {
+          await postRequest({
+            action: "login",
+            username: document.getElementById("loginUsername").value.trim(),
+            password: document.getElementById("loginPassword").value,
+            token,
+          });
+          const account = await refreshAccount(token);
+          if (!account) throw new Error("Login failed");
+          saveSession(token);
+          loginForm.reset();
+          closeAuth();
+          await loadPosts();
+        } catch (error) {
+          console.error(error);
+          currentUser = null;
+          updateAccountUi();
+          setAuthMessage("Tên tài khoản hoặc mật khẩu chưa đúng.");
+        } finally {
+          button.disabled = false;
+        }
+      });
+
+      registerForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (!POSTS_SCRIPT_URL)
+          return setAuthMessage("Bảng tin chưa được kết nối với Apps Script.");
+        const username = document
+          .getElementById("registerUsername")
+          .value.trim();
+        const password = document.getElementById("registerPassword").value;
+        if (!/^[a-zA-Z0-9_]{3,24}$/.test(username))
+          return setAuthMessage(
+            "Tên tài khoản cần có 3–24 ký tự: chữ không dấu, số hoặc dấu gạch dưới.",
+          );
+        if (password.length < 8)
+          return setAuthMessage("Mật khẩu cần có ít nhất 8 ký tự.");
+        const button = registerForm.querySelector("button[type=submit]");
+        button.disabled = true;
+        setAuthMessage("Đang tạo tài khoản...");
+        const token = makeSessionToken();
+        try {
+          await postRequest({ action: "register", username, password, token });
+          const account = await refreshAccount(token);
+          if (!account) throw new Error("Registration failed");
+          saveSession(token);
+          registerForm.reset();
+          closeAuth();
+          await loadPosts();
+        } catch (error) {
+          console.error(error);
+          currentUser = null;
+          updateAccountUi();
+          setAuthMessage(
+            "Chưa tạo được tài khoản. Tên này có thể đã được sử dụng; hãy thử tên khác.",
+          );
+        } finally {
+          button.disabled = false;
+        }
+      });
+
+      profileForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (!currentUser) return openAuth("login");
+        const displayName = document
+          .getElementById("displayNameInput")
+          .value.trim();
+        const reason = getModerationReason(
+          displayName,
+          "",
+          currentUser.role === "admin",
+        );
+        if (reason) return setAuthMessage(reason);
+        const button = profileForm.querySelector("button[type=submit]");
+        button.disabled = true;
+        try {
+          await postRequest({
+            action: "update_profile",
+            token: sessionToken,
+            displayName,
+            avatar: selectedAvatar,
+          });
+          currentUser.displayName = displayName;
+          currentUser.avatar = selectedAvatar;
+          updateAccountUi();
+          setAuthMessage("Đã lưu hồ sơ của bạn.", true);
+          await loadPosts();
+        } catch (error) {
+          console.error(error);
+          setAuthMessage("Chưa lưu được hồ sơ. Vui lòng thử lại.");
+        } finally {
+          button.disabled = false;
+        }
+      });
+
+      async function logOut() {
+        try {
+          if (sessionToken)
+            await postRequest({ action: "logout", token: sessionToken });
+        } catch (error) {
+          console.error(error);
+        }
+        sessionToken = "";
+        currentUser = null;
+        try {
+          localStorage.removeItem("manga-radar-session");
+        } catch {}
+        updateAccountUi();
+        closeAuth();
+        await loadPosts();
+      }
+      document.getElementById("logoutButton").addEventListener("click", logOut);
+      document
+        .getElementById("profileLogoutButton")
+        .addEventListener("click", logOut);
+
+      function makeSessionToken() {
+        try {
+          return `${crypto.randomUUID()}${crypto.randomUUID()}`;
+        } catch {
+          return `${Date.now()}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`;
+        }
+      }
+
+      function saveSession(token) {
+        sessionToken = token;
+        try {
+          localStorage.setItem("manga-radar-session", token);
+        } catch {}
+      }
+
       postForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         if (!POSTS_SCRIPT_URL) {
@@ -1084,13 +1774,30 @@
           );
           return;
         }
-        const name = document.getElementById("postName").value.trim();
+        if (!currentUser) {
+          openAuth("login");
+          setPostStatus("Đăng nhập hoặc tạo tài khoản để đăng bài nhé.");
+          return;
+        }
         const body = document.getElementById("postBody").value.trim();
-        if (!name || !body) return;
+        if (!body) return;
+        const reason = getModerationReason(
+          currentUser.displayName,
+          body,
+          currentUser.role === "admin",
+        );
+        if (reason) {
+          setPostStatus(reason);
+          return;
+        }
         postSubmit.disabled = true;
         postSubmit.firstChild.textContent = "ĐANG ĐĂNG... ";
         try {
-          await postRequest({ action: "create_post", name, body, clientId });
+          await postRequest({
+            action: "create_post",
+            body,
+            token: sessionToken,
+          });
           postForm.reset();
           setPostStatus("Bài viết đã được gửi lên bảng tin.");
           await loadPosts();
@@ -1118,7 +1825,10 @@
         try {
           const posts = await getPosts();
           renderPosts(posts);
-          setPostStatus("Đã kết nối bảng tin cộng đồng.");
+          if (!currentUser)
+            setPostStatus(
+              "Đăng nhập hoặc tạo tài khoản để đăng bài, bình luận và thả cảm xúc.",
+            );
         } catch (error) {
           console.error(error);
           postCount.textContent = "Không tải được";
@@ -1131,32 +1841,147 @@
       }
 
       function getPosts() {
+        return jsonpRequest({ action: "list", token: sessionToken });
+      }
+
+      function jsonpRequest(params) {
         return new Promise((resolve, reject) => {
-          const callback = `mangaPostsCallback_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+          const stopLoading = startLoading(loadingLabel(params.action));
+          const callback = `mangaCallback_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
           const script = document.createElement("script");
+          const query = new URLSearchParams({
+            ...params,
+            callback,
+            _: String(Date.now()),
+          });
           const timer = setTimeout(
             () => finish(new Error("Request timed out")),
             12000,
           );
+          let finished = false;
           function finish(error, data) {
+            if (finished) return;
+            finished = true;
             clearTimeout(timer);
             delete window[callback];
             script.remove();
+            stopLoading();
             error ? reject(error) : resolve(data);
           }
           window[callback] = (data) => finish(null, data);
-          script.onerror = () => finish(new Error("Could not load feed"));
-          script.src = `${POSTS_SCRIPT_URL}?action=list&clientId=${encodeURIComponent(clientId)}&callback=${callback}&_=${Date.now()}`;
+          script.onerror = () => finish(new Error("Could not load data"));
+          script.src = `${POSTS_SCRIPT_URL}?${query}`;
           document.body.appendChild(script);
         });
       }
 
       async function postRequest(payload) {
         const data = new URLSearchParams(payload);
-        await fetch(POSTS_SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          body: data,
+        const stopLoading = startLoading(loadingLabel(payload.action));
+        try {
+          await fetch(POSTS_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: data,
+          });
+        } finally {
+          stopLoading();
+        }
+      }
+
+      async function refreshAccount(token = sessionToken) {
+        if (!token || !POSTS_SCRIPT_URL) {
+          currentUser = null;
+          updateAccountUi();
+          return null;
+        }
+        const account = await jsonpRequest({ action: "me", token });
+        currentUser = account && account.id ? account : null;
+        updateAccountUi();
+        return currentUser;
+      }
+
+      function updateAccountUi() {
+        openAuthButton.hidden = Boolean(currentUser);
+        accountUser.hidden = !currentUser;
+        if (currentUser) {
+          document.getElementById("accountAvatar").textContent =
+            currentUser.avatar || avatarOptions[0];
+          document.getElementById("accountDisplayName").textContent =
+            currentUser.displayName;
+          postingIdentity.querySelector(".post-avatar").textContent =
+            currentUser.avatar || avatarOptions[0];
+          postingIdentity.lastElementChild.textContent = `Đang đăng với tên ${currentUser.displayName}.`;
+        } else {
+          postingIdentity.querySelector(".post-avatar").textContent = "🔒";
+          postingIdentity.lastElementChild.textContent =
+            "Đăng nhập để dùng tên và avatar của bạn khi tham gia.";
+        }
+      }
+
+      function openAuth(view = "choice") {
+        authOverlay.hidden = false;
+        authMessage.textContent = "";
+        loginForm.hidden = true;
+        registerForm.hidden = true;
+        profileForm.hidden = true;
+        authChoice.hidden = view === "profile";
+        if (view === "profile") {
+          authTitle.textContent = "Hồ sơ của bạn";
+          authDescription.textContent =
+            "Chọn tên hiển thị và avatar mọi người sẽ thấy.";
+          profileForm.hidden = false;
+          document.getElementById("displayNameInput").value =
+            currentUser.displayName;
+          selectedAvatar = currentUser.avatar || avatarOptions[0];
+          renderAvatarPicker();
+        } else if (view === "login") {
+          authTitle.textContent = "Đăng nhập";
+          authDescription.textContent =
+            "Đăng nhập để tham gia bảng tin Manga Radar.";
+          loginForm.hidden = false;
+          document.getElementById("loginUsername").focus();
+        } else if (view === "register") {
+          authTitle.textContent = "Tạo tài khoản";
+          authDescription.textContent =
+            "Chọn tên tài khoản và mật khẩu. Không cần email.";
+          registerForm.hidden = false;
+          document.getElementById("registerUsername").focus();
+        } else {
+          authTitle.textContent = "Tham gia Manga Radar";
+          authDescription.textContent =
+            "Đăng nhập để đăng bài, bình luận và thả cảm xúc.";
+          authChoice.hidden = false;
+        }
+      }
+
+      function closeAuth() {
+        authOverlay.hidden = true;
+      }
+
+      function setAuthMessage(text, isSuccess = false) {
+        authMessage.textContent = text;
+        authMessage.style.color = isSuccess ? "#245d37" : "#9b3a2e";
+      }
+
+      function renderAvatarPicker() {
+        const picker = document.getElementById("avatarPicker");
+        picker.replaceChildren();
+        avatarOptions.forEach((avatar) => {
+          const option = document.createElement("button");
+          option.type = "button";
+          option.className = `avatar-choice${avatar === selectedAvatar ? " is-selected" : ""}`;
+          option.textContent = avatar;
+          option.setAttribute("aria-label", `Chọn avatar ${avatar}`);
+          option.setAttribute(
+            "aria-pressed",
+            String(avatar === selectedAvatar),
+          );
+          option.addEventListener("click", () => {
+            selectedAvatar = avatar;
+            renderAvatarPicker();
+          });
+          picker.appendChild(option);
         });
       }
 
@@ -1178,10 +2003,16 @@
           author.className = "post-author";
           const avatar = document.createElement("span");
           avatar.className = "post-avatar";
-          avatar.textContent = "漫";
+          avatar.textContent = post.avatar || "📚";
           const authorName = document.createElement("span");
           authorName.textContent = post.name;
           author.append(avatar, authorName);
+          if (post.isAdmin) {
+            const adminBadge = document.createElement("span");
+            adminBadge.className = "admin-badge";
+            adminBadge.textContent = "ADMIN";
+            author.appendChild(adminBadge);
+          }
           const time = document.createElement("time");
           time.className = "post-time";
           time.textContent = formatDate(post.createdAt);
@@ -1199,17 +2030,28 @@
             reaction.textContent = `${emoji} ${reactions[emoji] || 0}`;
             reaction.setAttribute("aria-label", `Thả cảm xúc ${emoji}`);
             reaction.addEventListener("click", async () => {
+              if (!currentUser) {
+                openAuth("login");
+                return;
+              }
+              const wasActive = reaction.classList.contains("is-active");
+              const oldCount = Number(reactions[emoji] || 0);
+              reactions[emoji] = Math.max(0, oldCount + (wasActive ? -1 : 1));
+              reaction.classList.toggle("is-active", !wasActive);
+              reaction.textContent = `${emoji} ${reactions[emoji]}`;
               reaction.disabled = true;
               try {
                 await postRequest({
                   action: "react",
                   postId: post.id,
                   emoji,
-                  clientId,
+                  token: sessionToken,
                 });
-                await loadPosts();
               } catch (error) {
                 console.error(error);
+                reactions[emoji] = oldCount;
+                reaction.classList.toggle("is-active", wasActive);
+                reaction.textContent = `${emoji} ${oldCount}`;
                 setPostStatus("Chưa gửi được cảm xúc. Thử lại nhé.");
               } finally {
                 reaction.disabled = false;
@@ -1221,68 +2063,125 @@
           commentCount.className = "comment-count";
           commentCount.textContent = `💬 ${(post.comments || []).length} bình luận`;
           actions.appendChild(commentCount);
+          if (post.canDelete) {
+            const deleteButton = document.createElement("button");
+            deleteButton.type = "button";
+            deleteButton.className = "post-delete";
+            deleteButton.textContent = "Xóa bài";
+            deleteButton.addEventListener("click", async () => {
+              if (!window.confirm("Bạn có chắc muốn xóa bài viết này không?"))
+                return;
+              deleteButton.disabled = true;
+              try {
+                await postRequest({
+                  action: "delete_post",
+                  postId: post.id,
+                  token: sessionToken,
+                });
+                await loadPosts();
+                setPostStatus("Đã xóa bài viết.");
+              } catch (error) {
+                console.error(error);
+                setPostStatus("Không xóa được bài viết. Vui lòng thử lại.");
+                deleteButton.disabled = false;
+              }
+            });
+            actions.appendChild(deleteButton);
+          }
           const comments = document.createElement("div");
           comments.className = "comments";
           (post.comments || []).forEach((item) => {
             const comment = document.createElement("div");
             comment.className = "comment";
+            const commentAvatar = document.createElement("span");
+            commentAvatar.textContent = `${item.avatar || "📚"} `;
             const commenter = document.createElement("strong");
             commenter.textContent = item.name;
-            comment.append(commenter, document.createTextNode(item.body));
+            comment.append(
+              commentAvatar,
+              commenter,
+              document.createTextNode(item.body),
+            );
             comments.appendChild(comment);
           });
           const commentForm = document.createElement("form");
           commentForm.className = "comment-form";
-          const commentName = document.createElement("input");
-          commentName.placeholder = "Tên của bạn";
-          commentName.maxLength = 40;
-          commentName.setAttribute("aria-label", "Tên hiển thị cho bình luận");
-          commentName.required = true;
           const commentBody = document.createElement("input");
-          commentBody.placeholder = "Viết bình luận...";
+          commentBody.placeholder = currentUser
+            ? "Viết bình luận..."
+            : "Đăng nhập để bình luận";
           commentBody.maxLength = 500;
           commentBody.setAttribute("aria-label", "Nội dung bình luận");
-          commentBody.required = true;
+          commentBody.required = Boolean(currentUser);
+          commentBody.disabled = !currentUser;
           const commentButton = document.createElement("button");
-          commentButton.type = "submit";
-          commentButton.textContent = "GỬI";
-          commentForm.append(commentName, commentBody, commentButton);
+          commentButton.type = currentUser ? "submit" : "button";
+          commentButton.textContent = currentUser ? "GỬI" : "ĐĂNG NHẬP";
+          if (!currentUser)
+            commentButton.addEventListener("click", () => openAuth("login"));
+          const commentFeedback = document.createElement("div");
+          commentFeedback.className = "comment-feedback";
+          commentFeedback.setAttribute("role", "status");
+          commentFeedback.setAttribute("aria-live", "polite");
+          commentForm.append(commentBody, commentButton);
           commentForm.addEventListener("submit", async (event) => {
             event.preventDefault();
+            commentFeedback.textContent = "";
+            const commentBodyValue = commentBody.value.trim();
+            if (!currentUser) return;
+            const reason = getModerationReason(
+              currentUser.displayName,
+              commentBodyValue,
+              currentUser.role === "admin",
+            );
+            if (reason) {
+              commentFeedback.textContent = reason;
+              return;
+            }
             commentButton.disabled = true;
+            const commentItem = document.createElement("div");
+            commentItem.className = "comment";
+            const commentAvatar = document.createElement("span");
+            commentAvatar.textContent = `${currentUser.avatar || "📚"} `;
+            const commenter = document.createElement("strong");
+            commenter.textContent = currentUser.displayName;
+            commentItem.append(
+              commentAvatar,
+              commenter,
+              document.createTextNode(commentBodyValue),
+            );
+            comments.appendChild(commentItem);
+            const oldCount = post.comments.length;
+            commentCount.textContent = `💬 ${oldCount + 1} bình luận`;
             try {
               await postRequest({
                 action: "comment",
                 postId: post.id,
-                name: commentName.value.trim(),
-                body: commentBody.value.trim(),
-                clientId,
+                body: commentBodyValue,
+                token: sessionToken,
               });
-              await loadPosts();
+              commentBody.value = "";
+              commentFeedback.textContent = "Đã gửi bình luận.";
             } catch (error) {
               console.error(error);
-              setPostStatus("Chưa gửi được bình luận. Thử lại nhé.");
+              commentItem.remove();
+              commentCount.textContent = `💬 ${oldCount} bình luận`;
+              commentFeedback.textContent =
+                "Chưa gửi được bình luận. Thử lại nhé.";
             } finally {
               commentButton.disabled = false;
             }
           });
-          card.append(meta, body, actions, comments, commentForm);
+          card.append(
+            meta,
+            body,
+            actions,
+            comments,
+            commentForm,
+            commentFeedback,
+          );
           postFeed.appendChild(card);
         });
-      }
-
-      function getClientId() {
-        const key = "manga-radar-client-id";
-        try {
-          let id = localStorage.getItem(key);
-          if (!id) {
-            id = crypto.randomUUID();
-            localStorage.setItem(key, id);
-          }
-          return id;
-        } catch {
-          return `guest-${Math.random().toString(36).slice(2)}`;
-        }
       }
 
       function formatDate(value) {
@@ -1297,7 +2196,68 @@
       function setPostStatus(text) {
         postStatus.textContent = text;
       }
-      loadPosts();
+
+      function getModerationReason(name, content, allowAdminName = false) {
+        if (
+          !allowAdminName &&
+          name.normalize("NFKC").toLocaleLowerCase("vi").includes("admin")
+        ) {
+          return "Tên hiển thị không được chứa từ “admin”. Hãy chọn tên khác nhé.";
+        }
+        for (const value of [name, content]) {
+          const words =
+            value.toLocaleLowerCase("vi").match(/[\p{L}\p{N}]+/gu) || [];
+          if (words.some((word) => blockedWords.has(word.normalize("NFC")))) {
+            return "Tên hoặc nội dung có từ ngữ không phù hợp nên chưa thể đăng.";
+          }
+        }
+        return "";
+      }
+
+      function updateComposerShortcut() {
+        const sectionRect = postsSection.getBoundingClientRect();
+        const formRect = postForm.getBoundingClientRect();
+        const sectionIsVisible =
+          sectionRect.top < window.innerHeight && sectionRect.bottom > 0;
+        backToComposer.classList.toggle(
+          "is-visible",
+          sectionIsVisible && formRect.bottom < 0,
+        );
+      }
+
+      window.addEventListener("scroll", updateComposerShortcut, {
+        passive: true,
+      });
+      window.addEventListener("resize", updateComposerShortcut);
+      backToComposer.addEventListener("click", () => {
+        postForm.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.setTimeout(
+          () =>
+            document.getElementById("postBody").focus({ preventScroll: true }),
+          400,
+        );
+      });
+      updateComposerShortcut();
+      (async () => {
+        try {
+          const data = await jsonpRequest({
+            action: "init",
+            token: sessionToken,
+          });
+          currentUser = data.account && data.account.id ? data.account : null;
+          updateAccountUi();
+          renderPosts(data.posts || []);
+          if (!currentUser)
+            setPostStatus(
+              "Đăng nhập hoặc tạo tài khoản để đăng bài, bình luận và thả cảm xúc.",
+            );
+        } catch (error) {
+          console.error(error);
+          currentUser = null;
+          updateAccountUi();
+          await loadPosts();
+        }
+      })();
     </script>
   </body>
 </html>
